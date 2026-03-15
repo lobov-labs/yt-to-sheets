@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTrack to Sheets — Chrome Extension</title>
+  <style>
+    :root {
+      --bg: #111318;
+      --surface: #1c1f27;
+      --border: #2d3140;
+      --accent: #6c8eff;
+      --text: #e2e6f0;
+      --text-dim: #8b92a8;
+      --text-muted: #5c6278;
+      --green: #3ecf8e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      flex: 1;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    .brand-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #6c8eff, #a78bfa);
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .brand-icon svg { width: 22px; height: 22px; }
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .brand-name span { color: var(--accent); }
+
+    .hero-label {
+      display: inline-block;
+      background: rgba(108,142,255,0.1);
+      border: 1px solid rgba(108,142,255,0.25);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    h1 span { color: var(--accent); }
+    .subtitle {
+      font-size: 17px;
+      color: var(--text-dim);
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #6c8eff, #818cf8);
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 13px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-bottom: 56px;
+    }
+    .cta-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(108,142,255,0.3);
+    }
+    .cta-btn svg { width: 18px; height: 18px; }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    @media (max-width: 480px) { .features { grid-template-columns: 1fr; } }
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .feature-icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .feature-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .feature-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+    .footer-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 14 14" fill="none">
+        <path d="M2 7l3.5 3.5L12 3.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="brand-name">YouTrack <span>→</span> Sheets</div>
+  </div>
+
+  <div class="hero-label">Chrome Extension</div>
+  <h1>Export YouTrack issues<br>to <span>Google Sheets</span></h1>
+  <p class="subtitle">
+    One click to export any YouTrack issue to your spreadsheet — no API tokens, no copy-pasting. Works with cloud and self-hosted YouTrack.
+  </p>
+
+  <a class="cta-btn" href="https://chromewebstore.google.com/detail/youtrack-to-sheets/hmmieajlpegpelfiephalokbbfbjomkc" target="_blank">
+    <svg viewBox="0 0 18 18" fill="none">
+      <circle cx="9" cy="9" r="8" stroke="white" stroke-width="1.5"/>
+      <path d="M6 9l2.5 2.5L13 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Add to Chrome — it's free
+  </a>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title">One click export</div>
+      <div class="feature-desc">Open any issue, click the button — data is instantly added as a new row.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔑</div>
+      <div class="feature-title">No API token needed</div>
+      <div class="feature-desc">Sign in with Google OAuth. No manual token setup required.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⚙️</div>
+      <div class="feature-title">Configurable fields</div>
+      <div class="feature-desc">Choose which fields to export and reorder columns to match your sheet.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🌐</div>
+      <div class="feature-title">Any YouTrack</div>
+      <div class="feature-desc">Works with YouTrack Cloud and any self-hosted instance.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2025 Lobov Labs</span>
+    <a href="./privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
